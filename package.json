@@ -1,13 +1,21 @@
 {
-  "name": "webcam-monitor",
+  "name": "roommirror",
   "version": "1.0.0",
   "private": true,
-  "description": "A simple always-on webcam monitor",
+  "description": "A fixed 4:1 webcam viewer for use as a room mirror",
   "author": "Yuma",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/H1S4G10rc4/roommirror.git"
+  },
+  "homepage": "https://github.com/H1S4G10rc4/roommirror#readme",
+  "bugs": {
+    "url": "https://github.com/H1S4G10rc4/roommirror/issues"
+  },
   "main": "src/main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron --ozone-platform=x11 .",
     "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer.js",
     "dist": "electron-builder --linux"
   },
@@ -16,9 +24,9 @@
     "electron-builder": "^26.0.12"
   },
   "build": {
-    "appId": "local.webcam.monitor",
-    "productName": "Webcam Monitor",
-    "artifactName": "Webcam-Monitor-${version}.${ext}",
+    "appId": "io.github.h1s4g10rc4.roommirror",
+    "productName": "Room mirror",
+    "artifactName": "Room-mirror-${version}.${ext}",
     "directories": {
       "output": "outputs"
     },
