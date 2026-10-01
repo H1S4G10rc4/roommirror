@@ -9,6 +9,7 @@ const closeButton = document.querySelector('#close-window');
 
 let stream = null;
 let hideTimer = null;
+const TOOLBAR_HIDE_DELAY = 2200;
 
 function loadSettings() {
   try {
@@ -86,10 +87,12 @@ function showToolbar() {
   toolbar.classList.remove('hidden');
   clearTimeout(hideTimer);
   hideTimer = setTimeout(() => {
-    if (!toolbar.matches(':hover') && !toolbar.contains(document.activeElement)) {
-      toolbar.classList.add('hidden');
+    if (toolbar.matches(':hover')) {
+      showToolbar();
+      return;
     }
-  }, 2200);
+    toolbar.classList.add('hidden');
+  }, TOOLBAR_HIDE_DELAY);
 }
 
 cameraSelect.addEventListener('change', () => startCamera(cameraSelect.value));
